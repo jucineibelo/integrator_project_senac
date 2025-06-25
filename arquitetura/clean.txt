@@ -1,0 +1,20 @@
+src/
+├── domain/
+│   ├── entities/
+│   │   ├── User.java
+│   │   └── Client.java
+│   └── gateway/
+│       └── ClientGateway.java
+├── application/
+│   └── usecases/
+│       └── CreateClientUseCase.java
+├── adapters/
+│   ├── controllers/
+│   │   └── ClientController.java
+│   ├── views/
+│   │   └── client.fxml
+│   └── persistence/
+│       └── MySQLClientRepository.java
+└── main/
+    └── App.java (classe JavaFX principal)
+	
