@@ -32,15 +32,15 @@ public class Client {
 
 
 
-✅ 2. ClientRepository.java (Interface - Camada de Domínio)
+✅ 2. ClientGateway.java (Interface - Camada de Domínio)
 
 
 
-package domain.repositories;
+package domain.gateway;
 
-import domain.entities.Client;
+import domain.entities.ClientGateway;
 
-public interface ClientRepository {
+public interface ClientGateway {
     void save(Client client);
 }
 
