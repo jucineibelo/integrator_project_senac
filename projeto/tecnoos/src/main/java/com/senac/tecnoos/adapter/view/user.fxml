@@ -4,17 +4,16 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="368.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="368.0" prefWidth="378.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.senac.tecnoos.adapter.controller.UserController">
    <children>
-      <Button layoutX="70.0" layoutY="277.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="239.0" text="Cadastrar" />
-      <Label layoutX="123.0" layoutY="43.0" prefHeight="30.0" prefWidth="155.0" text="Cadastro de Usuário">
+      <Button id="onRegisterButtonClicked()" layoutX="70.0" layoutY="277.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="239.0" text="Cadastrar" />
+      <Label layoutX="112.0" layoutY="45.0" prefHeight="30.0" prefWidth="155.0" text="Cadastro de Usuário">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <TextField layoutX="70.0" layoutY="97.0" prefHeight="38.0" prefWidth="239.0" />
-      <TextField layoutX="70.0" layoutY="151.0" prefHeight="38.0" prefWidth="239.0" />
-      <TextField layoutX="70.0" layoutY="209.0" prefHeight="38.0" prefWidth="239.0" />
+      <TextField fx:id="nameField" layoutX="70.0" layoutY="97.0" prefHeight="38.0" prefWidth="239.0" promptText="nome" />
+      <TextField fx:id="passwordField" layoutX="70.0" layoutY="151.0" prefHeight="38.0" prefWidth="239.0" promptText="username" />
+      <TextField fx:id="usernameField" layoutX="70.0" layoutY="209.0" prefHeight="38.0" prefWidth="239.0" promptText="password" />
    </children>
 </Pane>
