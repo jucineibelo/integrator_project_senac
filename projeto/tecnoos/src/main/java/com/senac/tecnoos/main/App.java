@@ -21,7 +21,7 @@ public class App extends Application {
         MySQLUserRepository userRepository = new MySQLUserRepository(connection);
         CreateUserUseCase userUseCase = new CreateUserUseCase(userRepository);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/user.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/senac/tecnoos/adapter/view/user.fxml"));
         Scene scene = new Scene(loader.load());
 
         UserController controller = loader.getController();
@@ -31,6 +31,7 @@ public class App extends Application {
         stage.setTitle("Cadastro de Usuário");
         stage.show();
     }
+
 
     public static void main(String[] args) {
         launch(args);
