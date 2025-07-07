@@ -2,17 +2,18 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.geometry.*?>
 
-<BorderPane prefHeight="650" prefWidth="900" style="-fx-background-color: #f5f7fa;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.senac.tecnoos.adapter.controller.PrincipalController">
+<BorderPane prefHeight="650" prefWidth="900" style="-fx-background-color: #f5f7fa;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.senac.tecnoos.adapter.controller.PrincipalController">
 
     <!-- Topo - Menu minimalista -->
     <top>
         <MenuBar style="-fx-background-color: #ffffff;">
             <Menu text="Cadastros">
                 <MenuItem onAction="#showUserRegister" text="Usuários" />
-                <MenuItem onAction="#showProductRegister" text="Produtos" />
+                <MenuItem onAction="#showPaymentRegister" text="Pagamento" />
+            <MenuItem onAction="#showUserRegister" text="Clientes" />
+            <MenuItem onAction="#showUserRegister" text="Serviços" />
+            <MenuItem onAction="#showUserRegister" text="Produtos" />
             </Menu>
             <Menu text="Ordens de Serviço">
                 <MenuItem text="Nova OS" />

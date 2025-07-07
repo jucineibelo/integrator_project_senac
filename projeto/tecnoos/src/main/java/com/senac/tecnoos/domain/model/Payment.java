@@ -1,11 +1,11 @@
 package com.senac.tecnoos.domain.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Payment {
     private Long id;
     private String description;
-    private Date registrationDate;
+    private LocalDate registrationDate;
 
     public Long getId() {
         return id;
@@ -23,11 +23,11 @@ public class Payment {
         this.description = description;
     }
 
-    public Date getRegistrationDate() {
+    public LocalDate getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
     }
 }
