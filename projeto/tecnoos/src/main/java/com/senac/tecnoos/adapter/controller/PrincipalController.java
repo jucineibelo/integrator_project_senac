@@ -2,12 +2,15 @@ package com.senac.tecnoos.adapter.controller;
 
 import com.senac.tecnoos.adapter.persistence.ConnectionFactory;
 import com.senac.tecnoos.adapter.persistence.UserDao;
+import com.senac.tecnoos.application.usecase.PaymentUseCase;
 import com.senac.tecnoos.application.usecase.UserUseCase;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -18,6 +21,8 @@ public class PrincipalController {
     private StackPane contentPane;
 
     private UserUseCase userUseCase;
+
+    private PaymentUseCase paymentUseCase;
 
     public PrincipalController() {
         try {
@@ -37,22 +42,47 @@ public class PrincipalController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(
                     "/com/senac/tecnoos/adapter/view/user.fxml"
             ));
-            Parent userRegisterScreen = loader.load();
+            Parent root = loader.load();
 
             UserController controller = loader.getController();
             controller.setUserUseCase(userUseCase);
 
-            // Adiciona a tela sobre o contentPane principal
-            contentPane.getChildren().add(userRegisterScreen);
+            Stage userStage = new Stage();
+            userStage.setTitle("Cadastro de Usuário");
+            userStage.setScene(new javafx.scene.Scene(root));
+            userStage.initModality(Modality.APPLICATION_MODAL);
+            userStage.show();
 
         } catch (IOException e) {
             showAlert("Erro", "Falha ao carregar tela de usuário: " + e.getMessage());
         }
     }
 
+    @FXML
+    public void showPaymentRegister() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/com/senac/tecnoos/adapter/view/payment.fxml"
+            ));
+            Parent root = loader.load();
+
+            PaymentController controller = loader.getController();
+            controller.setPaymentUseCase(paymentUseCase);
+
+            Stage userStage = new Stage();
+            userStage.setTitle("Cadastro de Pagamento");
+            userStage.setScene(new javafx.scene.Scene(root));
+            userStage.initModality(Modality.APPLICATION_MODAL);
+            userStage.show();
+
+        } catch (IOException e) {
+            showAlert("Erro", "Falha ao carregar tela de pagamento: " + e.getMessage());
+        }
+    }
+
+
     public void returnToMainScreen() {
         contentPane.getChildren().clear();
-        // Adicione aqui qualquer conteúdo padrão da tela principal
     }
 
     @FXML
@@ -70,11 +100,8 @@ public class PrincipalController {
         System.exit(0);
     }
 
-    // Método para mostrar a tela principal (será chamado pelo botão fechar)
     public void showMainScreen() {
         contentPane.getChildren().clear();
-        // Aqui você pode adicionar algum conteúdo padrão para a tela principal
-        // ou deixar vazio se preferir
     }
 
     private void showAlert(String title, String message) {
