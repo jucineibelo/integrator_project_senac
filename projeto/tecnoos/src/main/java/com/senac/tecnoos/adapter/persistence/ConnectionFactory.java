@@ -3,7 +3,7 @@ package com.senac.tecnoos.adapter.persistence;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class MySQLConnectionFactory implements DataBaseConnectionFactory{
+public class ConnectionFactory implements DataBaseConnectionFactory{
 
     private static final String URL = "jdbc:mysql://localhost:3306/base";
     private static final String USER = "root";

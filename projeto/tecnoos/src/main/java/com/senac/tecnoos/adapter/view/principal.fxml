@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane prefHeight="650" prefWidth="900" style="-fx-background-color: #f5f7fa;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.senac.tecnoos.adapter.controller.PrincipalController">
+
+    <!-- Topo - Menu minimalista -->
+    <top>
+        <MenuBar style="-fx-background-color: #ffffff;">
+            <Menu text="Cadastros">
+                <MenuItem onAction="#showUserRegister" text="Usuários" />
+                <MenuItem onAction="#showProductRegister" text="Produtos" />
+            </Menu>
+            <Menu text="Ordens de Serviço">
+                <MenuItem text="Nova OS" />
+                <MenuItem text="Consultar" />
+            </Menu>
+            <Menu text="Sistema">
+                <MenuItem onAction="#logout" text="Sair" />
+            </Menu>
+        </MenuBar>
+    </top>
+
+    <!-- Centro - Área principal super clean -->
+    <center>
+        <StackPane fx:id="contentPane">
+            <VBox alignment="CENTER" spacing="20">
+                <Label style="-fx-font-size: 32px; -fx-text-fill: #3b82f6; -fx-font-weight: bold;" text="TecnoOS" />
+                <Label style="-fx-font-size: 14px; -fx-text-fill: #64748b;" text="Bem-vindo ao sistema de gestão técnica" />
+            </VBox>
+        </StackPane>
+    </center>
+
+    <!-- Rodapé minimalista -->
+    <bottom>
+        <HBox alignment="CENTER" style="-fx-padding: 10; -fx-background-color: #ffffff;">
+            <Label style="-fx-text-fill: #94a3b8; -fx-font-size: 12px;" text="© 2025 TecnoOS" />
+        </HBox>
+    </bottom>
+</BorderPane>

@@ -7,13 +7,12 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.time.LocalDate;
 
-public class MySQLUserRepository implements UserGateway {
+public class UserDao implements UserGateway {
     private final Connection connection;
 
-    public MySQLUserRepository(Connection connection) throws Exception {
-        this.connection = new MySQLConnectionFactory().getConnection();
+    public UserDao(Connection connection) throws Exception {
+        this.connection = new ConnectionFactory().getConnection();
     }
 
     @Override
@@ -26,9 +25,10 @@ public class MySQLUserRepository implements UserGateway {
             stmt.setString(1, user.getName());
             stmt.setString(2, user.getUsername());
             stmt.setString(3, user.getPassword());
-            stmt.setDate(4, Date.valueOf(LocalDate.now()));
+            stmt.setDate(4, Date.valueOf(user.getRegistrationDate()));
+            stmt.executeUpdate();
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Erro ao tentar salvar no repositório" + e);
         }
     }
 }
