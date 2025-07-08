@@ -28,7 +28,6 @@ public class PaymentDao implements PaymentGateway {
         } catch (SQLException e) {
             throw new RuntimeException("Erro ao tentar salvar no repositório" + e);
         }
-
     }
 
     @Override
