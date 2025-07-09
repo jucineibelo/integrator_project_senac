@@ -1,6 +1,7 @@
 package com.senac.tecnoos.adapter.controller;
 
 import com.senac.tecnoos.adapter.persistence.ConnectionFactory;
+import com.senac.tecnoos.adapter.persistence.PaymentDao;
 import com.senac.tecnoos.adapter.persistence.UserDao;
 import com.senac.tecnoos.application.usecase.PaymentUseCase;
 import com.senac.tecnoos.application.usecase.UserUseCase;
@@ -28,8 +29,13 @@ public class PrincipalController {
         try {
             ConnectionFactory connectionFactory = new ConnectionFactory();
             Connection connection = connectionFactory.getConnection();
+
             UserDao userRepository = new UserDao(connection);
+            PaymentDao paymentDao = new PaymentDao(connection);
+
             this.userUseCase = new UserUseCase(userRepository);
+            this.paymentUseCase = new PaymentUseCase(paymentDao);
+
         } catch (Exception e) {
             e.printStackTrace();
             showAlert("Erro", "Falha ao conectar com o banco de dados");

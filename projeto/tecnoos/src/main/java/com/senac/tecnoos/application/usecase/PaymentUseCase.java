@@ -2,6 +2,8 @@ package com.senac.tecnoos.application.usecase;
 
 import com.senac.tecnoos.domain.gateway.PaymentGateway;
 import com.senac.tecnoos.domain.model.Payment;
+
+import java.time.LocalDate;
 import java.util.List;
 
 public class PaymentUseCase {
@@ -13,6 +15,7 @@ public class PaymentUseCase {
     }
 
     public void save(Payment payment) {
+        payment.setRegistrationDate(LocalDate.now());
         paymentGateway.save(payment);
     }
 
