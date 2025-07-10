@@ -2,8 +2,10 @@ package com.senac.tecnoos.adapter.controller;
 
 import com.senac.tecnoos.adapter.persistence.ConnectionFactory;
 import com.senac.tecnoos.adapter.persistence.PaymentDao;
+import com.senac.tecnoos.adapter.persistence.ServiceDao;
 import com.senac.tecnoos.adapter.persistence.UserDao;
 import com.senac.tecnoos.application.usecase.PaymentUseCase;
+import com.senac.tecnoos.application.usecase.ServiceUseCase;
 import com.senac.tecnoos.application.usecase.UserUseCase;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +27,8 @@ public class PrincipalController {
 
     private PaymentUseCase paymentUseCase;
 
+    private ServiceUseCase serviceUseCase;
+
     public PrincipalController() {
         try {
             ConnectionFactory connectionFactory = new ConnectionFactory();
@@ -32,9 +36,12 @@ public class PrincipalController {
 
             UserDao userRepository = new UserDao(connection);
             PaymentDao paymentDao = new PaymentDao(connection);
+            ServiceDao serviceDao = new ServiceDao(connection);
+
 
             this.userUseCase = new UserUseCase(userRepository);
             this.paymentUseCase = new PaymentUseCase(paymentDao);
+            this.serviceUseCase = new ServiceUseCase(serviceDao);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -85,6 +92,29 @@ public class PrincipalController {
             showAlert("Erro", "Falha ao carregar tela de pagamento: " + e.getMessage());
         }
     }
+
+    @FXML
+    public void showServiceRegister() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(
+                    "/com/senac/tecnoos/adapter/view/service.fxml"
+            ));
+            Parent root = loader.load();
+
+            ServiceController controller = loader.getController();
+            controller.setServiceUseCase(serviceUseCase);
+
+            Stage userStage = new Stage();
+            userStage.setTitle("Cadastro de Serviço");
+            userStage.setScene(new javafx.scene.Scene(root));
+            userStage.initModality(Modality.APPLICATION_MODAL);
+            userStage.show();
+
+        } catch (IOException e) {
+            showAlert("Erro", "Falha ao carregar tela de pagamento: " + e.getMessage());
+        }
+    }
+
 
 
     public void returnToMainScreen() {
