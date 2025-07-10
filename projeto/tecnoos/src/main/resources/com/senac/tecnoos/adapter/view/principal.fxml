@@ -12,7 +12,7 @@
                 <MenuItem onAction="#showUserRegister" text="Usuários" />
                 <MenuItem onAction="#showPaymentRegister" text="Pagamento" />
             <MenuItem onAction="#showUserRegister" text="Clientes" />
-            <MenuItem onAction="#showUserRegister" text="Serviços" />
+            <MenuItem onAction="#showServiceRegister" text="Serviços" />
             <MenuItem onAction="#showUserRegister" text="Produtos" />
             </Menu>
             <Menu text="Ordens de Serviço">
